@@ -17,6 +17,10 @@ public class UserService {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
+    public Optional<User> findByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
+
     public User registerUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword())); // Hash the password
         return userRepository.save(user);
@@ -34,7 +38,5 @@ public class UserService {
         return null; // Return null if the authentication fails
     }
     
-    public Optional<User> findByUsername(String username) {
-        return userRepository.findByUsername(username);
-    }
+    
 }

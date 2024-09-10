@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Login from "./login/login";
-import Register from "./register/register";
 import Header from "@/components/Navigations/Header";
-import { useRouter } from 'next/navigation';
-// import { Toaster } from "react-hot-toast";
 import Footer from "@/components/Navigations/Footer";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -22,7 +19,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {/* <Toaster position="top-center" /> */}
         <Header />
         <hr className="w-[90%] mx-auto border-[#202020] rounded-full" />
         <div>{children}</div>

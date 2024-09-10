@@ -1,7 +1,5 @@
-// components/Cards/TextCard.tsx
 import React from "react";
-import axios from 'axios';
-import { useRouter } from 'next/navigation';
+import { toast } from 'react-toastify'; // Import toast for showing messages
 
 interface TextCardProps {
   text: string;
@@ -10,24 +8,15 @@ interface TextCardProps {
 }
 
 const TextCard: React.FC<TextCardProps> = ({ text, index, onCopy }) => {
+  // Function to copy text to clipboard and display success message
   const copyToClipboard = (txt: string) => {
     navigator.clipboard.writeText(txt);
-    // Optionally show a success message
-    // toast.success("Copied To Clipboard.");
+    toast.success("Copied to clipboard!"); // Show success message
   };
 
-  const handleCopyClick = async () => {
+  const handleCopyClick = () => {
     copyToClipboard(text);
     onCopy(text); // Call the onCopy function to save text to the database
-    
-    try {
-      const response = await axios.post('http://localhost:8080/api/save', { text });
-      console.log("Response from server:", response.data);
-    } catch (error) {
-      console.error('There was an error saving the text!', error);
-    }
-    
-    console.log("Copy button dab chuka hai!");
   };
 
   return (

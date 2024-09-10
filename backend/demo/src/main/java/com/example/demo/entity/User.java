@@ -16,17 +16,12 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-//    private Set<TextData> textData;
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<TextData> textData;
 
+    // Constructors, Getters, and Setters
     public User() {
     }
-
-    public User(Long id) {
-        this.id=id;
-    }
-
-    // Getters and setters
 
     public Long getId() {
         return id;
@@ -52,11 +47,11 @@ public class User {
         this.password = password;
     }
 
-//    public Set<TextData> getTextData() {
-//        return textData;
-//    }
-//
-//    public void setTextData(Set<TextData> textData) {
-//        this.textData = textData;
-//    }
+    public Set<TextData> getTextData() {
+        return textData;
+    }
+
+    public void setTextData(Set<TextData> textData) {
+        this.textData = textData;
+    }
 }

@@ -1,10 +1,5 @@
-"use client";
-
-import React from "react";
-import Login from "./login";
-import { useRouter } from 'next/navigation'; // Change to next/navigation
-
+import Login from './login';
 
 export default function LoginPage() {
-  return <Login />;
+    return <Login />;
 }
